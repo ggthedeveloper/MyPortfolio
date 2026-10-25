@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <title>Gaurav Gautam — 3D Universe Planetary Simulation & Portfolio</title>
+  <meta name="title" content="Gaurav Gautam — 3D Universe Planetary Simulation & Portfolio">
+  <meta name="description" content="An interactive 3D universe and solar system simulation showcasing the AI/ML research, SIH finalists, and full-stack engineering of Gaurav Gautam (SRM University-AP, CGPA 9.49).">
+  <meta name="theme-color" content="#04060a">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Gaurav Gautam — 3D Universe Simulation Portfolio">
+  <meta property="og:description" content="Explore the interplanetary portfolio simulation of Gaurav Gautam: Transformer compression research, SIH finalists, and practical AI systems.">
+  <meta property="og:image" content="https://avatars.githubusercontent.com/u/208684426?v=4">
+
+  <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/universe.css">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='50' fill='%2304060a'/><circle cx='50' cy='50' r='36' fill='none' stroke='%2300f2fe' stroke-width='4'/><circle cx='50' cy='50' r='14' fill='%2338bdf8'/><text x='50' y='55' font-family='sans-serif' font-weight='800' font-size='16' fill='%23000' text-anchor='middle'>GG</text></svg>">
+</head>
+<body>
+  <!-- 3D UNIVERSE CANVAS VIEWPORT -->
+  <div id="universe-canvas" role="region" aria-label="3D Interstellar Solar System Simulation"></div>
+  <div class="cosmic-scanline-overlay" aria-hidden="true"></div>
+
+  <!-- FLIGHT DECK TOP NAVIGATION HUD -->
+  <header class="flight-deck-hud" role="banner">
+    <div class="hud-callsign-box">
+      <div class="hud-radar-blip" aria-hidden="true"></div>
+      <div class="hud-identity-title">
+        <span>STARFLEET ARCHITECT:</span> GAURAV GAUTAM
+      </div>
+      <div class="hud-sub-badge">CGPA 9.49 // SRM-AP</div>
+    </div>
+
+    <div class="hud-actions-group">
+      <button id="hud-sound-btn" class="hud-btn hud-icon-btn" aria-label="Toggle Space Audio Synthesizer" title="Toggle Audio Soundscape">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg>
+      </button>
+
+      <a href="assets/Gaurav_Gautam_Resume.pdf" target="_blank" rel="noopener noreferrer" class="hud-btn" title="View Verified ATS Resume">
+        <span>Resume PDF</span>
+        <span aria-hidden="true">↗</span>
+      </a>
+
+      <button id="hud-dossier-btn" class="hud-btn hud-btn-primary" title="Toggle Full Recruiter Cyber-Dossier [D]">
+        <span>📑 Dossier Mode</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- WARP DOCK / PLANETARY ORBIT SELECTOR (BOTTOM DOCK) -->
+  <nav class="warp-dock-container" aria-label="Interplanetary Warp Navigation">
+    <button class="warp-pill-btn active" data-warp-target="core">
+      <span class="warp-dot" style="background: #00f2fe; box-shadow: 0 0 8px #00f2fe;"></span>
+      <span>☀️ Core Star</span>
+    </button>
+    <button class="warp-pill-btn" data-warp-target="varshapurvanuman">
+      <span class="warp-dot" style="background: #0ea5e9;"></span>
+      <span>🪐 Planet Varsha (SIH)</span>
+    </button>
+    <button class="warp-pill-btn" data-warp-target="railsamanvay">
+      <span class="warp-dot" style="background: #f59e0b;"></span>
+      <span>🪐 Planet Samanvay (SIH)</span>
+    </button>
+    <button class="warp-pill-btn" data-warp-target="drainsense">
+      <span class="warp-dot" style="background: #2563eb;"></span>
+      <span>🪐 Planet Hydros (Flood)</span>
+    </button>
+    <button class="warp-pill-btn" data-warp-target="smartroutefinder">
+      <span class="warp-dot" style="background: #10b981;"></span>
+      <span>🪐 Planet Waypoint (Routing)</span>
+    </button>
+    <button class="warp-pill-btn" data-warp-target="research">
+      <span class="warp-dot" style="background: #8b5cf6;"></span>
+      <span>🛰️ Nebula Observatory</span>
+    </button>
+    <button class="warp-pill-btn" data-warp-target="about">
+      <span class="warp-dot" style="background: #e2e8f0;"></span>
+      <span>🏛️ The Academy</span>
+    </button>
+    <button class="warp-pill-btn" data-warp-target="contact">
+      <span class="warp-dot" style="background: #00f2fe;"></span>
+      <span>📡 Quantum Beacon</span>
+    </button>
+  </nav>
+
+  <!-- PLANETARY TERMINAL / HOLOGRAPHIC SCANNER HUD -->
+  <aside id="planetary-terminal" class="planetary-terminal" role="complementary" aria-label="Planetary Telemetry Terminal">
+    <div class="terminal-header">
+      <div>
+        <div id="terminal-meta" class="terminal-telemetry-meta">ORBITAL SECTOR // PLANET TELEMETRY</div>
+        <h2 id="terminal-title" class="terminal-body-title">PLANET VARSHA</h2>
+        <div id="terminal-subtitle" class="terminal-body-subtitle">Sub-Orbital Observation Nexus</div>
+      </div>
+      <button id="terminal-close-btn" class="terminal-close-btn" aria-label="Disengage Orbit" title="Disengage Orbit [ESC]">✕</button>
+    </div>
+
+    <div id="terminal-content" class="terminal-content-scroll">
+      <!-- Injected dynamically via universe-app.js based on selected celestial body -->
+    </div>
+
+    <div class="terminal-footer-actions">
+      <a id="terminal-demo-link" href="#" target="_blank" rel="noopener noreferrer" class="hud-btn hud-btn-primary" style="flex: 1; justify-content: center;">
+        <span>Launch Live Demo</span>
+        <span aria-hidden="true">↗</span>
+      </a>
+      <a id="terminal-github-link" href="#" target="_blank" rel="noopener noreferrer" class="hud-btn" style="flex: 1; justify-content: center;">
+        <span>GitHub Codebase</span>
+        <span aria-hidden="true">↗</span>
+      </a>
+    </div>
+  </aside>
+
+  <!-- FLIGHT CONTROLS & STARMAP HUD HELPER PILL -->
+  <div class="flight-instruction-tag">
+    <span>[MOUSE: Orbit Cosmos]</span>
+    <span>[SCROLL: Zoom]</span>
+    <span>[CLICK PLANET: Warp]</span>
+    <span>[ESC: Solar System View]</span>
+  </div>
+
+  <!-- PLANETARY HOVER TOOLTIP -->
+  <div id="planet-hover-tooltip" class="planet-hover-tooltip" aria-hidden="true"></div>
+
+  <!-- RECRUITER CYBER-DOSSIER FULLSCREEN OVERLAY -->
+  <div id="recruiter-dossier-modal" class="dossier-overlay" role="dialog" aria-modal="true" aria-label="Recruiter Cyber-Dossier" aria-hidden="true">
+    <div class="dossier-container">
+      <div class="dossier-header-bar">
+        <div>
+          <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--space-cyan); letter-spacing: 0.1em; text-transform: uppercase;">
+            VERIFIED ATS DOSSIER // RECRUITER & RESEARCH AUDIT
+          </div>
+          <h1 style="font-size: 2.2rem; font-weight: 800; color: #fff; margin-top: 0.25rem;">Gaurav Gautam</h1>
+          <p style="font-size: 0.95rem; color: var(--space-text-muted);">
+            B.Tech Computer Science and Engineering (Minor in Math) · SRM University-AP · <strong>CGPA: 9.49/10.0</strong>
+          </p>
+        </div>
+        <button id="dossier-close-btn" class="terminal-close-btn" aria-label="Close Dossier" title="Close Dossier [ESC]">✕</button>
+      </div>
+
+      <!-- Dossier Body Content -->
+      <div style="display: flex; flex-direction: column; gap: 2rem;">
+        <!-- Research Experience -->
+        <div>
+          <h3 style="font-size: 1.15rem; color: var(--space-cyan); border-bottom: 1px solid var(--space-border); padding-bottom: 0.5rem; margin-bottom: 1rem;">
+            Research Fellowships & Deep Learning
+          </h3>
+          <div style="margin-bottom: 1.25rem;">
+            <div style="display: flex; justify-content: space-between; font-weight: 700; color: #fff;">
+              <span>IIT Bhubaneswar — Research Intern (Transformer Compression)</span>
+              <span style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--space-text-muted);">May 2026 – July 2026</span>
+            </div>
+            <p style="font-size: 0.925rem; color: #cbd5e1; margin-top: 0.35rem; line-height: 1.6;">
+              Researched Transformer compression combining <strong>CoFi structured pruning</strong> and <strong>QA-LoRA</strong> adaptation. Engineered PyTorch & Hugging Face pipelines; resume-reported result achieved sharp parameter count reduction while retaining <strong>over 95% benchmark task accuracy</strong>.
+            </p>
+          </div>
+
+          <div>
+            <div style="display: flex; justify-content: space-between; font-weight: 700; color: #fff;">
+              <span>SRM University-AP — Summer Research Fellow (Efficient AI)</span>
+              <span style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--space-text-muted);">June 2026 – July 2026</span>
+            </div>
+            <p style="font-size: 0.925rem; color: #cbd5e1; margin-top: 0.35rem; line-height: 1.6;">
+              Investigated parameter-efficient fine-tuning (PEFT) pipelines under 4-bit NF4 and 8-bit post-training quantization, benchmarking GPU VRAM and token latency trade-offs.
+            </p>
+          </div>
+        </div>
+
+        <!-- Technical Projects -->
+        <div>
+          <h3 style="font-size: 1.15rem; color: var(--space-cyan); border-bottom: 1px solid var(--space-border); padding-bottom: 0.5rem; margin-bottom: 1rem;">
+            Verified Technical Projects
+          </h3>
+          <div style="display: grid; grid-template-columns: 1fr; gap: 1.25rem;">
+            <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--space-border); border-radius: 12px; padding: 1.25rem;">
+              <div style="font-weight: 800; color: #fff; font-size: 1.1rem;">VarshaPurvanumanAI (SIH 2026 Finalist · SIH26080)</div>
+              <p style="font-size: 0.875rem; color: #cbd5e1; margin-top: 0.25rem;">
+                India-Scale AI/ML rainfall post-processing system for Ministry of Earth Sciences (MoES / IMD). Team Lead. Asynchronous FastAPI services + React 19 telemetry dashboard, verified with <strong>150 automated tests</strong>.
+              </p>
+              <div style="margin-top: 0.65rem; display: flex; gap: 0.75rem;">
+                <a href="https://varsha-purvanuman-ai.vercel.app/" target="_blank" rel="noopener noreferrer" style="color: var(--space-cyan); font-weight: 700; font-size: 0.825rem;">Live Demo ↗</a>
+                <a href="https://github.com/ggthedeveloper/VarshaPurvanumanAI" target="_blank" rel="noopener noreferrer" style="color: var(--space-text-muted); font-size: 0.825rem;">GitHub Repo ↗</a>
+              </div>
+            </div>
+
+            <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--space-border); border-radius: 12px; padding: 1.25rem;">
+              <div style="font-weight: 800; color: #fff; font-size: 1.1rem;">RailSamanvayAI (SIH 2026 Finalist · SIH26027)</div>
+              <p style="font-size: 0.875rem; color: #cbd5e1; margin-top: 0.25rem;">
+                Intelligent railway maintenance block scheduling for Ministry of Railways. Multi-constraint optimization balancing asset failure probability, track possession windows, and crew rosters.
+              </p>
+              <div style="margin-top: 0.65rem; display: flex; gap: 0.75rem;">
+                <a href="https://rail-samanvay-ai.vercel.app/" target="_blank" rel="noopener noreferrer" style="color: var(--space-cyan); font-weight: 700; font-size: 0.825rem;">Live Demo ↗</a>
+                <a href="https://github.com/ggthedeveloper/RailSamanvayAI" target="_blank" rel="noopener noreferrer" style="color: var(--space-text-muted); font-size: 0.825rem;">GitHub Repo ↗</a>
+              </div>
+            </div>
+
+            <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--space-border); border-radius: 12px; padding: 1.25rem;">
+              <div style="font-weight: 800; color: #fff; font-size: 1.1rem;">DrainSense AI (Urban Hydrology Prototype)</div>
+              <p style="font-size: 0.875rem; color: #cbd5e1; margin-top: 0.25rem;">
+                Urban waterlogging early warning for Vijayawada/Amaravati across 810 grid cells (500m) using SRTM 30m terrain, rainfall telemetry, calibrated XGBoost, and local TreeSHAP explanations. 18 automated tests.
+              </p>
+              <div style="margin-top: 0.65rem;">
+                <a href="https://github.com/ggthedeveloper/DrainSenseAI" target="_blank" rel="noopener noreferrer" style="color: var(--space-text-muted); font-size: 0.825rem;">GitHub Repo ↗</a>
+              </div>
+            </div>
+
+            <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--space-border); border-radius: 12px; padding: 1.25rem;">
+              <div style="font-weight: 800; color: #fff; font-size: 1.1rem;">Smart Route Finder (OpenStreetMap Graph Engine)</div>
+              <p style="font-size: 0.875rem; color: #cbd5e1; margin-top: 0.25rem;">
+                Full-stack graph navigation engine executing Dijkstra and A* pathfinding on OpenStreetMap topology via OSMnx and NetworkX, with dynamic multi-route Folium rendering.
+              </p>
+              <div style="margin-top: 0.65rem; display: flex; gap: 0.75rem;">
+                <a href="https://smart-route-finder-n52n.onrender.com/" target="_blank" rel="noopener noreferrer" style="color: var(--space-cyan); font-weight: 700; font-size: 0.825rem;">Live App ↗</a>
+                <a href="https://github.com/ggthedeveloper/Smart-Route-Finder" target="_blank" rel="noopener noreferrer" style="color: var(--space-text-muted); font-size: 0.825rem;">GitHub Repo ↗</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Leadership & Contact Actions -->
+        <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+          <a href="mailto:ggraipurchor@gmail.com" class="hud-btn hud-btn-primary" style="flex: 1; justify-content: center;">Send Direct Email (ggraipurchor@gmail.com) ✉</a>
+          <a href="assets/Gaurav_Gautam_Resume.pdf" download="Gaurav_Gautam_Resume.pdf" class="hud-btn" style="flex: 1; justify-content: center;">Download Verified Resume (PDF) ↓</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Three.js (r128) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <!-- Data Layer -->
+  <script src="js/portfolio-data.js"></script>
+  <!-- Space Audio Synthesizer -->
+  <script src="js/space-audio.js"></script>
+  <!-- 3D Universe Simulation Engine -->
+  <script src="js/universe-engine.js"></script>
+  <!-- Application Orchestrator -->
+  <script src="js/universe-app.js"></script>
+</body>
+</html>

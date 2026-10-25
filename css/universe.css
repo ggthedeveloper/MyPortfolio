@@ -1,0 +1,508 @@
+/* ==========================================================================
+   THE GAURAV GAUTAM COSMOS — UNIVERSE SIMULATION STYLESHEET
+   Immersive 3D Space Station & Planetary Navigation UI
+   ========================================================================== */
+
+:root {
+  --space-black: #04060a;
+  --space-surface: rgba(10, 15, 26, 0.82);
+  --space-border: rgba(56, 189, 248, 0.22);
+  --space-border-glow: rgba(0, 242, 254, 0.45);
+  --space-cyan: #00f2fe;
+  --space-blue: #38bdf8;
+  --space-amber: #f59e0b;
+  --space-emerald: #10b981;
+  --space-purple: #a855f7;
+  --space-text-primary: #f8fafc;
+  --space-text-muted: #94a3b8;
+  --font-mono: "JetBrains Mono", monospace;
+  --font-sans: "Plus Jakarta Sans", system-ui, sans-serif;
+  --ease-warp: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: var(--space-black);
+  color: var(--space-text-primary);
+  font-family: var(--font-sans);
+  user-select: none;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 3D WebGL Canvas Viewport */
+#universe-canvas {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+  outline: none;
+}
+
+/* Subtle holographic scanline overlay */
+.cosmic-scanline-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+  background: linear-gradient(rgba(18, 24, 38, 0) 50%, rgba(0, 0, 0, 0.18) 50%);
+  background-size: 100% 4px;
+  opacity: 0.6;
+}
+
+/* ==========================================================================
+   FLIGHT DECK TOP NAVIGATION HUD
+   ========================================================================== */
+.flight-deck-hud {
+  position: fixed;
+  top: 1.25rem;
+  left: 1.5rem;
+  right: 1.5rem;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  pointer-events: none;
+}
+
+.hud-callsign-box {
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.5rem 1.15rem;
+  background: var(--space-surface);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--space-border);
+  border-radius: 9999px;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.8), 0 0 15px rgba(56, 189, 248, 0.15);
+}
+
+.hud-radar-blip {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--space-cyan);
+  box-shadow: 0 0 12px var(--space-cyan);
+  animation: radar-pulse 2s infinite ease-in-out;
+}
+
+@keyframes radar-pulse {
+  0%, 100% { transform: scale(1); opacity: 0.9; }
+  50% { transform: scale(1.4); opacity: 0.4; }
+}
+
+.hud-identity-title {
+  font-size: 0.925rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.hud-sub-badge {
+  font-family: var(--font-mono);
+  font-size: 0.725rem;
+  color: var(--space-cyan);
+  padding: 0.15rem 0.5rem;
+  border-radius: 9999px;
+  background: rgba(0, 242, 254, 0.1);
+  border: 1px solid rgba(0, 242, 254, 0.25);
+}
+
+.hud-actions-group {
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.hud-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem 1.1rem;
+  border-radius: 9999px;
+  background: var(--space-surface);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--space-border);
+  color: var(--space-text-primary);
+  font-size: 0.825rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 220ms var(--ease-warp);
+  text-decoration: none;
+}
+
+.hud-btn:hover {
+  border-color: var(--space-cyan);
+  background: rgba(56, 189, 248, 0.15);
+  box-shadow: 0 0 15px rgba(56, 189, 248, 0.35);
+  transform: translateY(-2px);
+  color: #fff;
+}
+
+.hud-btn-primary {
+  background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+  border-color: rgba(56, 189, 248, 0.5);
+  color: #fff;
+  box-shadow: 0 0 18px rgba(2, 132, 199, 0.4);
+}
+
+.hud-btn-primary:hover {
+  background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%);
+  border-color: var(--space-cyan);
+  box-shadow: 0 0 25px rgba(0, 242, 254, 0.6);
+}
+
+.hud-icon-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.hud-icon-btn.is-active {
+  color: var(--space-cyan);
+  border-color: var(--space-cyan);
+  box-shadow: 0 0 15px rgba(0, 242, 254, 0.4);
+  background: rgba(0, 242, 254, 0.15);
+}
+
+/* ==========================================================================
+   WARP DOCK / PLANETARY ORBIT SELECTOR (BOTTOM DOCK)
+   ========================================================================== */
+.warp-dock-container {
+  position: fixed;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.5rem 0.85rem;
+  background: var(--space-surface);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid var(--space-border);
+  border-radius: 9999px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.8), 0 0 25px rgba(56, 189, 248, 0.18);
+  max-width: 95vw;
+  overflow-x: auto;
+}
+
+.warp-pill-btn {
+  background: transparent;
+  border: 1px solid transparent;
+  color: var(--space-text-muted);
+  font-size: 0.775rem;
+  font-weight: 700;
+  padding: 0.45rem 0.85rem;
+  border-radius: 9999px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  white-space: nowrap;
+  transition: all 200ms var(--ease-warp);
+}
+
+.warp-pill-btn:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.warp-pill-btn.active {
+  color: #ffffff;
+  background: rgba(0, 242, 254, 0.2);
+  border-color: var(--space-cyan);
+  box-shadow: 0 0 14px rgba(0, 242, 254, 0.35);
+}
+
+.warp-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* ==========================================================================
+   PLANETARY TERMINAL / HOLOGRAPHIC SCANNER HUD
+   ========================================================================== */
+.planetary-terminal {
+  position: fixed;
+  top: 5.5rem;
+  bottom: 5.5rem;
+  right: 2rem;
+  width: 480px;
+  max-width: calc(100vw - 3rem);
+  z-index: 100;
+  background: rgba(8, 13, 23, 0.92);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+  border: 1px solid var(--space-border-glow);
+  border-radius: 24px;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.9), 0 0 35px rgba(0, 242, 254, 0.2);
+  display: flex;
+  flex-direction: column;
+  transform: translateX(calc(100% + 3rem));
+  transition: transform 550ms var(--ease-warp);
+  overflow: hidden;
+}
+
+.planetary-terminal.is-open {
+  transform: translateX(0);
+}
+
+.terminal-header {
+  padding: 1.5rem 1.75rem 1.25rem;
+  border-bottom: 1px solid var(--space-border);
+  background: rgba(255, 255, 255, 0.02);
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.terminal-telemetry-meta {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--space-cyan);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.35rem;
+}
+
+.terminal-body-title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.15;
+}
+
+.terminal-body-subtitle {
+  font-size: 0.85rem;
+  color: var(--space-text-muted);
+  margin-top: 0.25rem;
+}
+
+.terminal-close-btn {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--space-border);
+  color: #fff;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  transition: all 200ms ease;
+  flex-shrink: 0;
+}
+
+.terminal-close-btn:hover {
+  background: rgba(239, 68, 68, 0.25);
+  border-color: #ef4444;
+  transform: rotate(90deg);
+}
+
+.terminal-content-scroll {
+  padding: 1.75rem;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.terminal-field-box {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 14px;
+  padding: 1.15rem;
+}
+
+.terminal-field-title {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--space-blue);
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.terminal-field-body {
+  font-size: 0.925rem;
+  line-height: 1.65;
+  color: #cbd5e1;
+}
+
+.terminal-metrics-callout {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: #34d399;
+  margin-top: 0.5rem;
+  font-weight: 700;
+}
+
+.terminal-stack-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-top: 0.5rem;
+}
+
+.terminal-tag {
+  font-size: 0.725rem;
+  font-weight: 600;
+  padding: 0.25rem 0.65rem;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--space-border);
+  color: #94a3b8;
+}
+
+.terminal-footer-actions {
+  padding: 1.25rem 1.75rem;
+  border-top: 1px solid var(--space-border);
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+/* ==========================================================================
+   FLIGHT CONTROLS & STARMAP HUD HELPER PILL
+   ========================================================================== */
+.flight-instruction-tag {
+  position: fixed;
+  bottom: 1.75rem;
+  left: 1.75rem;
+  z-index: 100;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--space-text-muted);
+  background: var(--space-surface);
+  backdrop-filter: blur(16px);
+  padding: 0.45rem 0.85rem;
+  border-radius: 9999px;
+  border: 1px solid var(--space-border);
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+/* Planetary Hover Tooltip */
+.planet-hover-tooltip {
+  position: fixed;
+  z-index: 1000;
+  pointer-events: none;
+  background: rgba(8, 13, 23, 0.95);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--space-border-glow);
+  border-radius: 12px;
+  padding: 0.75rem 1rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.9), 0 0 15px rgba(0, 242, 254, 0.25);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 160ms ease, visibility 160ms ease;
+}
+
+.planet-hover-tooltip.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* ==========================================================================
+   RECRUITER CYBER-DOSSIER FULLSCREEN OVERLAY
+   ========================================================================== */
+.dossier-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 500;
+  background: rgba(4, 6, 10, 0.94);
+  backdrop-filter: blur(32px);
+  -webkit-backdrop-filter: blur(32px);
+  overflow-y: auto;
+  padding: 4rem 1.5rem 3rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 350ms var(--ease-warp), visibility 350ms var(--ease-warp);
+}
+
+.dossier-overlay.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.dossier-container {
+  max-width: 900px;
+  margin: 0 auto;
+  background: #090e17;
+  border: 1px solid var(--space-border);
+  border-radius: 24px;
+  padding: clamp(1.75rem, 5vw, 3.5rem);
+  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.9), 0 0 40px rgba(56, 189, 248, 0.15);
+}
+
+.dossier-header-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--space-border);
+  padding-bottom: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .flight-instruction-tag {
+    display: none;
+  }
+
+  .planetary-terminal {
+    right: 1rem;
+    left: 1rem;
+    width: auto;
+    max-width: none;
+    top: 4.5rem;
+    bottom: 5.5rem;
+  }
+
+  .hud-identity-title span {
+    display: none;
+  }
+
+  .warp-dock-container {
+    bottom: 1rem;
+    padding: 0.35rem 0.5rem;
+  }
+
+  .warp-pill-btn {
+    font-size: 0.7rem;
+    padding: 0.35rem 0.65rem;
+  }
+}

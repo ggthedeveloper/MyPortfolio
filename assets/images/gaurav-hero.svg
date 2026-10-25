@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1600" width="1600" height="1600">
+  <defs>
+    <radialGradient id="bgGlow" cx="50%" cy="45%" r="65%">
+      <stop offset="0%" stop-color="#141824" stop-opacity="0.9"/>
+      <stop offset="45%" stop-color="#0d1017" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#0a0a0a" stop-opacity="1"/>
+    </radialGradient>
+    <linearGradient id="edgeGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#e8533a" stop-opacity="0.7"/>
+      <stop offset="50%" stop-color="#00d4ff" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#38bdf8" stop-opacity="0.2"/>
+    </linearGradient>
+    <linearGradient id="coralGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#e8533a"/>
+      <stop offset="100%" stop-color="#c0392b"/>
+    </linearGradient>
+    <filter id="glowBlur" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="18" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background Base (Transparent with ambient accent aura) -->
+  <radialGradient id="avatarAura" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#e8533a" stop-opacity="0.08"/>
+    <stop offset="60%" stop-color="#00d4ff" stop-opacity="0.03"/>
+    <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+  </radialGradient>
+  <rect width="1600" height="1600" fill="url(#avatarAura)"/>
+
+  <!-- Geometric Grid & Constellation Backdrop -->
+  <g stroke="rgba(255,255,255,0.04)" stroke-width="1.2">
+    <line x1="200" y1="0" x2="200" y2="1600"/>
+    <line x1="400" y1="0" x2="400" y2="1600"/>
+    <line x1="600" y1="0" x2="600" y2="1600"/>
+    <line x1="800" y1="0" x2="800" y2="1600"/>
+    <line x1="1000" y1="0" x2="1000" y2="1600"/>
+    <line x1="1200" y1="0" x2="1200" y2="1600"/>
+    <line x1="1400" y1="0" x2="1400" y2="1600"/>
+
+    <line x1="0" y1="200" x2="1600" y2="200"/>
+    <line x1="0" y1="400" x2="1600" y2="400"/>
+    <line x1="0" y1="600" x2="1600" y2="600"/>
+    <line x1="0" y1="800" x2="1600" y2="800"/>
+    <line x1="0" y1="1000" x2="1600" y2="1000"/>
+    <line x1="0" y1="1200" x2="1600" y2="1200"/>
+    <line x1="0" y1="1400" x2="1600" y2="1400"/>
+  </g>
+
+  <!-- Ambient Ring Accents -->
+  <circle cx="800" cy="650" r="420" fill="none" stroke="rgba(232, 83, 58, 0.12)" stroke-width="1.5" stroke-dasharray="8 12"/>
+  <circle cx="800" cy="650" r="540" fill="none" stroke="rgba(0, 212, 255, 0.08)" stroke-width="1" stroke-dasharray="14 18"/>
+  <circle cx="800" cy="650" r="320" fill="none" stroke="rgba(255, 255, 255, 0.05)" stroke-width="1"/>
+
+  <!-- Neural Network Lattice -->
+  <g stroke="rgba(56, 189, 248, 0.18)" stroke-width="1.2">
+    <line x1="520" y1="380" x2="680" y2="460"/>
+    <line x1="680" y1="460" x2="800" y2="390"/>
+    <line x1="800" y1="390" x2="920" y2="470"/>
+    <line x1="920" y1="470" x2="1080" y2="390"/>
+    <line x1="680" y1="460" x2="720" y2="600"/>
+    <line x1="800" y1="390" x2="800" y2="580"/>
+    <line x1="920" y1="470" x2="880" y2="600"/>
+    <line x1="720" y1="600" x2="800" y2="720"/>
+    <line x1="880" y1="600" x2="800" y2="720"/>
+    <line x1="600" y1="740" x2="720" y2="600"/>
+    <line x1="1000" y1="740" x2="880" y2="600"/>
+  </g>
+
+  <!-- Glowing Nodes -->
+  <g fill="#00d4ff">
+    <circle cx="520" cy="380" r="4" opacity="0.6"/>
+    <circle cx="680" cy="460" r="5" opacity="0.8"/>
+    <circle cx="800" cy="390" r="6" opacity="0.9"/>
+    <circle cx="920" cy="470" r="5" opacity="0.8"/>
+    <circle cx="1080" cy="390" r="4" opacity="0.6"/>
+    <circle cx="720" cy="600" r="5" opacity="0.7"/>
+    <circle cx="880" cy="600" r="5" opacity="0.7"/>
+    <circle cx="800" cy="720" r="6" opacity="0.85"/>
+  </g>
+
+  <!-- High-Tech Developer Silhouette -->
+  <!-- Head & Hair Silhouette -->
+  <path d="M 720 440 C 720 340, 880 340, 880 440 C 880 490, 860 550, 800 560 C 740 550, 720 490, 720 440 Z" fill="#181c24"/>
+  
+  <!-- Sleek Glasses / Neural Visor Glow -->
+  <rect x="740" y="430" width="120" height="22" rx="4" fill="none" stroke="url(#edgeGlow)" stroke-width="3" filter="url(#glowBlur)"/>
+  <circle cx="770" cy="441" r="3" fill="#e8533a"/>
+  <circle cx="830" cy="441" r="3" fill="#00d4ff"/>
+
+  <!-- Neck & Torso / Shoulders -->
+  <path d="M 770 555 L 770 610 L 610 680 C 560 705, 530 760, 520 830 L 490 1200 L 1110 1200 L 1080 830 C 1070 760, 1040 705, 990 680 L 830 610 L 830 555 Z" fill="#11141b"/>
+
+  <!-- Rim Lighting on Shoulders -->
+  <path d="M 610 680 C 560 705, 530 760, 520 830 L 495 1100" fill="none" stroke="#e8533a" stroke-width="3" opacity="0.5"/>
+  <path d="M 990 680 C 1040 705, 1070 760, 1080 830 L 1105 1100" fill="none" stroke="#00d4ff" stroke-width="3" opacity="0.4"/>
+
+  <!-- Chest Monogram / Insignia -->
+  <text x="800" y="818" text-anchor="middle" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="28" fill="rgba(255,255,255,0.3)" letter-spacing="8">GAURAV GAUTAM</text>
+  <text x="800" y="855" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-weight="600" font-size="14" fill="#e8533a" letter-spacing="3">&lt;DEVELOPER &amp; AI/ML RESEARCHER&gt;</text>
+
+  <!-- Laptop / Desk Ambient Horizon Glow -->
+  <ellipse cx="800" cy="1180" rx="360" ry="16" fill="rgba(0, 212, 255, 0.12)" filter="url(#glowBlur)"/>
+</svg>
