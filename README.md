@@ -2,7 +2,7 @@
 
 > High-performance developer & AI/ML researcher portfolio for **Gaurav Gautam** (Undergraduate Researcher & Software Engineer at SRM University-AP).
 
-![Portfolio Preview](assets/preview-desktop.png)
+
 
 ---
 
