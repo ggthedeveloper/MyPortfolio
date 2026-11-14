@@ -130,6 +130,7 @@ const CFG = {
 ```
 MyPortfolio/
 ├── index.html         # Complete, self-contained single-file portfolio (HTML, CSS, JS, Fonts, Assets)
+├── Gaurav_Gautam_Resume.pdf # Official Curriculum Vitae / Resume
 ├── gaurav.jpg         # High-resolution headshot
 ├── preview.png        # Screenshot preview for GitHub
 └── README.md          # Comprehensive project documentation
