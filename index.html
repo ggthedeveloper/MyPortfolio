@@ -21,7 +21,6 @@
 *{box-sizing:border-box;margin:0}
 html{background:var(--ink);transition:--acc .55s ease;scrollbar-width:thin;scrollbar-color:#2a2a2e var(--ink)}
 html.locked{overflow:hidden}
-html.clean, html.clean *, html.nocursor, html.nocursor *{cursor:none !important}
 body{position:relative;min-height:100vh;color:var(--paper);font:400 clamp(15px,1.02vw,17px)/1.55 var(--body);-webkit-font-smoothing:antialiased;overflow-x:hidden;
   background:
     radial-gradient(60vw 46vh at 50% 26vh, color-mix(in srgb,var(--acc) 13%,transparent), transparent 70%),
@@ -1934,10 +1933,8 @@ const swarm = {
     }
   }
 };
-let hideT;
 addEventListener('pointermove', e => {
   swarm.mouse.x = e.clientX; swarm.mouse.y = e.clientY; swarm.mouse.t = performance.now();
-  root.classList.remove('nocursor'); clearTimeout(hideT); if (started) hideT = setTimeout(() => root.classList.add('nocursor'), 1300);   // keeps your own pointer out of the shot
 });
 addEventListener('resize', () => swarm.size());
 let finaleRan = false;
@@ -1964,7 +1961,7 @@ function frame(now) {
 /* ---------- start / controls ---------- */
 const setPlayIcon = () => { const running = started && !paused && !finished; $('#icoPlay').innerHTML = finished ? '<path d="M6 1.5A4.5 4.5 0 1010.5 6H9a3 3 0 11-3-3v2l3.5-2.75L6 0z"/>' : running ? '<path d="M2 1h3v10H2zM7 1h3v10H7z"/>' : '<path d="M2 1l9 5-9 5z"/>'; };
 async function start() {
-  if (started) return; started = true; startedAt = performance.now(); root.classList.add('nocursor'); sfx.unlock(); root.classList.remove('locked'); scrollTo(0, 0); setPlayIcon();
+  if (started) return; started = true; startedAt = performance.now(); sfx.unlock(); root.classList.remove('locked'); scrollTo(0, 0); setPlayIcon();
   status('Scanning page…'); $('#hint').style.opacity = 0; sfx.whoosh();
   const scan = $('.scan'); scan.style.opacity = 1; await tween(820, k => scan.style.transform = `translateY(${ease(k) * innerHeight}px)`); scan.style.opacity = 0;
   idleMode = 'wander'; $('#boot').classList.add('off'); await wait(260);
