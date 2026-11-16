@@ -24,6 +24,24 @@
 
 ## ⚡ Highlights & Engineering Features
 
+- **Interactive AI Research Lab (Transformer Pruning & Compression Simulator):**
+  - An interactive in-browser research lab simulating **CoFi Structured Pruning** and **QA-LoRA (4-bit)** quantization for Transformer attention blocks (BERT/RoBERTa/LLaMA).
+  - Drag the live sparsity slider ($0\% \to 80\%$) to watch 12 Attention Heads ($H_1 \dots H_{12}$) and 16 intermediate FFN channels dynamically mask in real time with audio feedback.
+  - Live performance telemetry calculating **Retained Accuracy** (preserving $>95\%$ benchmark baseline), active parameters, VRAM memory reduction, and inference latency speedup.
+
+- **Dropdown Hacker Terminal / Quake Console (<kbd>`</kbd> / <kbd>~</kbd>):**
+  - Instant developer console featuring command line prompt `gaurav@portfolio:~$ `.
+  - Built-in commands: `help`, `about`, `projects`, `lab`, `research`, `email`, `stats`, `theme <color>`, `matrix`, `clear`, and `exit` with typewriter effects and keystroke audio synthesis.
+
+- **Cyber Matrix Rain Canvas Mode (<kbd>X</kbd>):**
+  - Fullscreen cyberpunk falling Katakana/code rain stream reacting in real-time to the active accent theme palette.
+
+- **3D Interactive Perspective Tilt & Specular Sheen:**
+  - Project cards dynamically tilt in 3D space (`perspective(1000px) rotateX/rotateY`) following cursor physics, with an interactive radial light glare reflection.
+
+- **1-Click Copy Email & Synthetic Audio Chime:**
+  - Direct 1-click clipboard copy for `ggraipurchor@gmail.com` with toast notification and Web Audio API harmonic chime.
+
 - **Autonomous 18-Cursor Swarm Engine:**
   - Upon loading or pressing <kbd>Space</kbd>, a swarm of 18 colored cursors (layout, type, color, copy, motion, pixels) concurrently draws wireframe boundaries and types text in real time using virtual-time choreographies.
   - Includes full playback telemetry: speed multiplier (<kbd>1</kbd>–<kbd>4</kbd>), auto-tour camera glide (<kbd>A</kbd>), audio synthesis (<kbd>M</kbd>), and instant replay (<kbd>R</kbd>).
@@ -79,7 +97,9 @@
 | <kbd>M</kbd> | Toggle Web Audio sound effects (wire tick, click, whoosh) |
 | <kbd>R</kbd> | Replay swarm construction from the beginning |
 | <kbd>⌘K</kbd> / <kbd>Ctrl+K</kbd> | Open the Command Palette search modal |
-| <kbd>Esc</kbd> | Close Command Palette or mobile drawer |
+| <kbd>`</kbd> / <kbd>~</kbd> | Toggle Quake-style interactive hacker terminal |
+| <kbd>X</kbd> | Toggle cyberpunk Matrix rain canvas stream |
+| <kbd>Esc</kbd> | Close Command Palette, terminal, or mobile drawer |
 
 ---
 
@@ -112,7 +132,7 @@ const CFG = {
   links: {
     github:    'https://github.com/ggthedeveloper',
     linkedin:  'https://www.linkedin.com/in/ggthedeveloper',
-    email:     'gaurav_gautam@srmuniv.edu.in'
+    email:     'ggraipurchor@gmail.com'
   },
   photo: '',                          // Leave empty to use embedded photo, or specify path
   agents: 18,                         // Number of autonomous cursors (default: 18)
@@ -130,7 +150,6 @@ const CFG = {
 ```
 MyPortfolio/
 ├── index.html         # Complete, self-contained single-file portfolio (HTML, CSS, JS, Fonts, Assets)
-├── Gaurav_Gautam_Resume.pdf # Official Curriculum Vitae / Resume
 ├── gaurav.jpg         # High-resolution headshot
 ├── preview.png        # Screenshot preview for GitHub
 └── README.md          # Comprehensive project documentation
@@ -146,7 +165,7 @@ MyPortfolio/
 - **Achievements:** 2× Smart India Hackathon Ministry Finalist (MoES & Ministry of Railways)
 - **GitHub:** [@ggthedeveloper](https://github.com/ggthedeveloper)
 - **LinkedIn:** [linkedin.com/in/ggthedeveloper](https://www.linkedin.com/in/ggthedeveloper)
-- **Email:** [gaurav_gautam@srmuniv.edu.in](mailto:gaurav_gautam@srmuniv.edu.in)
+- **Email:** [ggraipurchor@gmail.com](mailto:ggraipurchor@gmail.com)
 
 ---
 

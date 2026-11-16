@@ -386,9 +386,9 @@ function askAI(event, preset) {
       } else if (q.includes("skill") || q.includes("stack") || q.includes("tech") || q.includes("language")) {
         answer = "Core stack: Python, C/C++, Java, TypeScript, PyTorch, Hugging Face, Scikit-Learn, FastAPI, React, PostgreSQL, Docker, and Linux.";
       } else if (q.includes("contact") || q.includes("email") || q.includes("hire") || q.includes("reach")) {
-        answer = "You can contact Gaurav directly via email at gaurav_gautam@srmuniv.edu.in or connect on LinkedIn (in/ggthedeveloper).";
+        answer = "You can contact Gaurav directly via email at ggraipurchor@gmail.com or connect on LinkedIn (in/ggthedeveloper).";
       } else {
-        answer = `Gaurav Gautam is an AI/ML developer & researcher at SRM University-AP (CGPA 9.49) with 21 public GitHub repos, SIH 2026 finalist status, and research at IIT Bhubaneswar. Feel free to ask about his projects, research, or email him at gaurav_gautam@srmuniv.edu.in.`;
+        answer = `Gaurav Gautam is an AI/ML developer & researcher at SRM University-AP (CGPA 9.49) with 21 public GitHub repos, SIH 2026 finalist status, and research at IIT Bhubaneswar. Feel free to ask about his projects, research, or email him at ggraipurchor@gmail.com.`;
       }
       aiHistory.push({ role: "assistant", content: answer });
       addChatMessage(answer, false, "ai-body");
@@ -430,7 +430,7 @@ function sendChat(event) {
       msgInput.value = "";
     })
     .catch(() => {
-      error.textContent = "Couldn't send right now. Try again or email gaurav_gautam@srmuniv.edu.in.";
+      error.textContent = "Couldn't send right now. Try again or email ggraipurchor@gmail.com.";
       error.style.display = "block";
     })
     .finally(() => { sendBtn.disabled = false; });
@@ -643,8 +643,7 @@ function initCLI() {
   • <strong style="color:#fff;">research</strong>     - Transformer compression (CoFi + QA-LoRA @ IIT Bhubaneswar)
   • <strong style="color:#fff;">education</strong>    - SRM University-AP B.Tech CSE (CGPA 9.49)
   • <strong style="color:#fff;">skills</strong>       - Python, PyTorch, FastAPI, React, Docker, PostgreSQL
-  • <strong style="color:#fff;">cat resume</strong>   - Download verified PDF resume
-  • <strong style="color:#fff;">contact</strong>      - Email: gaurav_gautam@srmuniv.edu.in
+  • <strong style="color:#fff;">contact</strong>      - Email: ggraipurchor@gmail.com
   • <strong style="color:#fff;">clear</strong>        - Clear console buffer`;
       } else if (cmd === "projects") {
         resp.innerHTML = `[1] VarshaPurvanumanAI (SIH 2026 Finalist · SIH26080) - MoES/IMD Downscaling
@@ -664,11 +663,8 @@ CGPA: 9.49 / 10.0 (Top 1% Rank in CSE Department)`;
 AI / ML   : PyTorch, Hugging Face, Scikit-Learn, PEFT, TreeSHAP, XGBoost
 Backend   : FastAPI, Node.js, Express, REST APIs, WebSockets
 Tools     : Git, GitHub, Docker, Linux, Postman`;
-      } else if (cmd === "cat resume" || cmd === "resume") {
-        resp.innerHTML = `Opening assets/docs/Gaurav-Gautam-CV.pdf...`;
-        window.open("assets/docs/Gaurav-Gautam-CV.pdf", "_blank");
       } else if (cmd === "contact") {
-        resp.innerHTML = `Email    : gaurav_gautam@srmuniv.edu.in
+        resp.innerHTML = `Email    : ggraipurchor@gmail.com
 LinkedIn : https://linkedin.com/in/ggthedeveloper
 GitHub   : https://github.com/ggthedeveloper`;
       } else if (cmd === "clear") {

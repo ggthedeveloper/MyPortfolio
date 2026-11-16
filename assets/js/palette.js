@@ -2,7 +2,7 @@
 (() => {
   const onHome = !!document.getElementById("about");
   const data = typeof PORTFOLIO_DATA !== "undefined" ? PORTFOLIO_DATA : {};
-  const EMAIL = "gaurav_gautam@srmuniv.edu.in";
+  const EMAIL = "ggraipurchor@gmail.com";
 
   const go = (id) => {
     if (onHome) document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -47,12 +47,6 @@
     { group: "Actions", label: "Copy email address", keywords: EMAIL, run: () => {
       navigator.clipboard?.writeText(EMAIL).then(() => toast("Email copied"), () => toast(EMAIL));
     } },
-    { group: "Actions", label: "Download CV", keywords: "resume pdf", run: () => {
-      const a = Object.assign(document.createElement("a"), { href: "assets/docs/Gaurav-Gautam-CV.pdf", download: "" });
-      a.dataset.transitionBypass = "true";
-      document.body.appendChild(a); a.click(); a.remove();
-    } },
-    { group: "Actions", label: "View CV", keywords: "resume pdf one-pager", run: () => open("assets/docs/Gaurav-Gautam-CV.pdf") },
     { group: "Actions", label: "Switch light / dark theme", keywords: "theme mode", run: () => document.getElementById("theme-toggle")?.click() },
     { group: "Links", label: "GitHub · ggthedeveloper", keywords: "code repos", run: () => open("https://github.com/ggthedeveloper") },
     { group: "Links", label: "LinkedIn · ggthedeveloper", keywords: "profile", run: () => open("https://www.linkedin.com/in/ggthedeveloper") }

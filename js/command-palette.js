@@ -38,7 +38,6 @@ document.addEventListener("DOMContentLoaded", () => {
     {
       category: "Quick Actions & External",
       items: [
-        { title: "Download Resume (PDF)", desc: "Verified authentic single-page ATS standard resume", action: () => downloadResume() },
         { title: "Toggle Theme (Dark / Light)", desc: "Switch between OLED dark and crisp balanced light", action: () => toggleTheme() },
         { title: "Toggle Audio Micro-Haptics", desc: "Turn sound feedback on or off (Web Audio API)", action: () => toggleSound() },
         { title: "Copy Email (ggraipurchor@gmail.com)", desc: "Copy primary contact email to clipboard", action: () => copyEmail() },
@@ -80,15 +79,6 @@ document.addEventListener("DOMContentLoaded", () => {
     closePalette();
     const btn = document.querySelector(`[data-open-case-study="${projectId}"]`);
     if (btn) btn.click();
-  }
-
-  function downloadResume() {
-    closePalette();
-    const a = document.createElement("a");
-    a.href = "assets/Gaurav_Gautam_Resume.pdf";
-    a.download = "Gaurav_Gautam_Resume.pdf";
-    a.click();
-    window.soundFx?.playSuccess();
   }
 
   function toggleTheme() {

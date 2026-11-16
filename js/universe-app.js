@@ -176,7 +176,6 @@ document.addEventListener("DOMContentLoaded", () => {
           </div>
           <div style="margin-top: 1rem; display: flex; flex-direction: column; gap: 0.6rem;">
             <a href="mailto:ggraipurchor@gmail.com" class="hud-btn hud-btn-primary" style="justify-content: center;">Send Direct Email ✉</a>
-            <a href="assets/Gaurav_Gautam_Resume.pdf" download="Gaurav_Gautam_Resume.pdf" class="hud-btn" style="justify-content: center;">Download Verified Resume (PDF) ↓</a>
           </div>
         </div>
       `;

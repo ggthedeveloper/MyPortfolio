@@ -18,7 +18,6 @@ const PORTFOLIO_DATA = {
     githubUsername: "ggthedeveloper",
     githubUrl: "https://github.com/ggthedeveloper",
     linkedinUrl: "https://linkedin.com/in/ggthedeveloper",
-    resumePdf: "assets/Gaurav_Gautam_Resume.pdf",
     shortBio: "Computer Science undergraduate specializing in AI/ML systems, Transformer model compression (CoFi pruning, QA-LoRA), and full-stack engineering. Focused on turning complex geospatial, climate, and operational data into resilient applications.",
     aboutParagraphs: [
       "I am an undergraduate researcher and full-stack software engineer at SRM University-AP with a current CGPA of 9.49/10.0. My work sits at the convergence of efficient deep learning systems and resilient software engineering: training and compressing Transformer models for constrained environments, and building production-grade web systems that solve tangible national and civic challenges.",

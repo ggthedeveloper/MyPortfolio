@@ -175,24 +175,29 @@ async function runUniverseTests() {
     }
     console.log("✔ TEST 5 PASSED: Full Recruiter Cyber-Dossier toggle operational.");
 
-    console.log("\n[TEST 6] Critical Links & Verified Resume PDF Verification");
+    console.log("\n[TEST 6] Critical Links & Verified Email Verification");
     const linksData = await evaluate(`
       (() => {
-        const resumeLinks = Array.from(document.querySelectorAll('a[href*="Resume.pdf"]')).map(a => a.getAttribute('href'));
+        const resumeLinks = Array.from(document.querySelectorAll('a[href*="Resume.pdf"], a[href*="CV.pdf"]')).map(a => a.getAttribute('href'));
         const githubLinks = Array.from(document.querySelectorAll('a[href*="github.com/ggthedeveloper"]')).map(a => a.getAttribute('href'));
+        const emailLinks = Array.from(document.querySelectorAll('a[href*="ggraipurchor@gmail.com"]')).map(a => a.getAttribute('href'));
         return {
           resumeCount: resumeLinks.length,
-          resumeHref: resumeLinks[0],
-          githubCount: githubLinks.length
+          githubCount: githubLinks.length,
+          emailCount: emailLinks.length
         };
       })()
     `);
-    console.log(`- Verified Resume PDF Links: ${linksData.resumeCount} (Points to: "${linksData.resumeHref}")`);
+    console.log(`- Verified Resume PDF Links: ${linksData.resumeCount} (Must be 0 as CV button was removed)`);
     console.log(`- Verified GitHub Links: ${linksData.githubCount}`);
-    if (linksData.resumeCount === 0 || !linksData.resumeHref.includes("Gaurav_Gautam_Resume.pdf")) {
-      throw new Error("Resume link verification failed!");
+    console.log(`- Verified Email Links: ${linksData.emailCount}`);
+    if (linksData.resumeCount !== 0) {
+      throw new Error("CV/Resume button should be removed!");
     }
-    console.log("✔ TEST 6 PASSED: Real PDF resume and verified external links confirmed.");
+    if (linksData.emailCount === 0) {
+      throw new Error("Contact email verification failed: ggraipurchor@gmail.com not found!");
+    }
+    console.log("✔ TEST 6 PASSED: CV removed and verified contact email confirmed.");
 
     console.log("\n[TEST 7] Page Errors & Console Check");
     console.log(`- Page exceptions: ${pageErrors.length}`);
