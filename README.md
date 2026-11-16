@@ -5,7 +5,7 @@
 [![Portfolio Status](https://img.shields.io/badge/Status-Live-3dffb0?style=for-the-badge&logo=vercel&logoColor=black)](https://ggthedeveloper.github.io/MyPortfolio/)
 [![GitHub](https://img.shields.io/badge/GitHub-ggthedeveloper-181717?style=for-the-badge&logo=github)](https://github.com/ggthedeveloper)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-ggthedeveloper-0A66C2?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/in/ggthedeveloper)
-[![SIH Finalist](https://img.shields.io/badge/SIH_2026-2%C3%97_Ministry_Finalist-f59e0b?style=for-the-badge)](https://github.com/ggthedeveloper/VarshaPurvanumanAI)
+[![SIH Finalist](https://img.shields.io/badge/SIH_2026-Finalist-f59e0b?style=for-the-badge)](https://github.com/ggthedeveloper/VarshaPurvanumanAI)
 [![CGPA](https://img.shields.io/badge/SRM--AP-CGPA_9.49-38bdf8?style=for-the-badge)](https://github.com/ggthedeveloper)
 
 <br/>
@@ -162,7 +162,7 @@ MyPortfolio/
 **Gaurav Gautam**
 - **Institution:** SRM University-AP (B.Tech CSE with Minor in Mathematics, CGPA: **9.49**)
 - **Fellowship:** Research Fellow at IIT Bhubaneswar (Efficient AI Lab)
-- **Achievements:** 2× Smart India Hackathon Ministry Finalist (MoES & Ministry of Railways)
+- **Achievements:** Finalist of Smart India Hackathon (SIH)
 - **GitHub:** [@ggthedeveloper](https://github.com/ggthedeveloper)
 - **LinkedIn:** [linkedin.com/in/ggthedeveloper](https://www.linkedin.com/in/ggthedeveloper)
 - **Email:** [ggraipurchor@gmail.com](mailto:ggraipurchor@gmail.com)

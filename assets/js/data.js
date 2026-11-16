@@ -240,7 +240,7 @@ const PORTFOLIO_DATA = {
       icon: "trophy",
       date: "2026-03",
       title: "Smart India Hackathon (SIH 2026) Finalist",
-      sub: "Internal Finalist across 2 Ministry Problem Statements (MoES SIH26080 & Railways SIH26027)"
+      sub: "Finalist of Smart India Hackathon (SIH)"
     },
     {
       icon: "medal",
